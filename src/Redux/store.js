@@ -19,6 +19,7 @@ const session = (state={}, action) => {
 }
 
 const reducer = combineReducers({
+    form: formReducer,
     session
 })
 

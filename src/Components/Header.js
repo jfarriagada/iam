@@ -6,7 +6,7 @@ const Header = ({onAuth, onLogout, user}) => {
     
     function renderAuthButton(){
         return (
-            <div className="navbar-item" onClick={onAuth}><Link to='/'> Entrar </Link></div>
+            <div className="navbar-item" onClick={onAuth}><Link to='/'> Authenticate </Link></div>
         )
     }
 
@@ -14,7 +14,8 @@ const Header = ({onAuth, onLogout, user}) => {
         return (
             <div className="navbar-start">
                 <div className="navbar-item">{user.displayName}</div>
-                <div className="navbar-item" onClick={onLogout}><Link to='/'> Salir </Link></div>
+                <div className="navbar-item"><Link to='/create'>Create Post</Link></div>
+                <div className="navbar-item" onClick={onLogout}><Link to='/'> Logout </Link></div>
             </div>
         )
     }

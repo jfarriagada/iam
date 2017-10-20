@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 // redux 
 import { connect } from 'react-redux'
 // Components
-import Post from './Post'
+import Post from './Post/Post'
+import CreatePost from './Post/CreatePost'
 import Header from './Header'
 // Firebase
 import firebase from 'firebase'
@@ -45,6 +46,7 @@ class Navbar extends Component {
                     user={this.props.user}
                     />
                 <Route exact path='/' component={Post} />
+                <Route path='/create' component={CreatePost} />
             </div>
           </Router>
         )
