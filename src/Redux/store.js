@@ -18,9 +18,21 @@ const session = (state={}, action) => {
     }
 }
 
+const posts = (state=[], action) => {
+    var new_state = Object.assign({}, state)
+    switch (action.type) {
+        case 'POST_LIST':
+            new_state = state.concat(action.data)
+            return new_state
+        default:
+            return state
+    }
+}
+
 const reducer = combineReducers({
     form: formReducer,
-    session
+    session,
+    posts
 })
 
 const store = createStore(reducer)

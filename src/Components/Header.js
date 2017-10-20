@@ -14,6 +14,7 @@ const Header = ({onAuth, onLogout, user}) => {
         return (
             <div className="navbar-start">
                 <div className="navbar-item">{user.displayName}</div>
+                <div className="navbar-item"><Link to='/'>Home</Link></div>
                 <div className="navbar-item"><Link to='/create'>Create Post</Link></div>
                 <div className="navbar-item" onClick={onLogout}><Link to='/'> Logout </Link></div>
             </div>

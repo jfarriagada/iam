@@ -5,13 +5,13 @@ const validate = values => {
   const errors = {}
   if (!values.title) {
     errors.title = 'Required'
-  } else if (values.title.length > 50) {
-    errors.title = 'Maximo 25 caracteres'
+  } else if (values.title.length > 150) {
+    errors.title = 'Maximo 150 caracteres'
   }
   if (!values.body) {
     errors.body = 'Required'
-  } else if (values.body.length > 1500) {
-    errors.body = 'Maximo 1500 caracteres'
+  } else if (values.body.length > 7500) {
+    errors.body = 'Maximo 7500 caracteres'
   }
   return errors
 }

@@ -40,10 +40,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         clear: () => {
             dispatch(reset('PostForm'))
+            ownProps.history.push('/')
         },
     }
 }
