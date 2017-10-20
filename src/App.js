@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 // Firebase
 import { DB_CONFIG } from './firebase'
 import firebase from 'firebase'
+// Componets
+import Navbar from './Components/Navbar'
+import Footer from './Components/Footer'
 
 // Firebase config
 firebase.initializeApp(DB_CONFIG);
@@ -12,7 +15,8 @@ class App extends Component {
   render() {
       return (
         <div>
-          Aloja :D
+          <Navbar />
+          <Footer />
         </div>
       )
   }
