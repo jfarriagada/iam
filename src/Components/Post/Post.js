@@ -18,8 +18,8 @@ class Post extends Component {
         const list = this.props.posts.map((post, value) => {
             var p = post.val()
             return(
-                <div>
-                    <h1 key={post.key} className="title"><Link to={`/${post.key}`}>{p.title}</Link></h1>
+                <div key={value}>
+                    <h1 className="title"><Link to={`/${post.key}`}>{p.title}</Link></h1>
                     <p>{p.body}</p>
                     <strong className="column is-offset-9">{p.day} / {p.month} / {p.year}</strong>
                     <br/>
