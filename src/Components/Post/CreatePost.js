@@ -45,7 +45,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         clear: () => {
             dispatch(reset('PostForm'))
             ownProps.history.push('/')
-        },
+        }
     }
 }
 

@@ -5,7 +5,7 @@ import { reset } from 'redux-form'
 import { Link } from 'react-router-dom'
 
 class Post extends Component {
-    
+
     componentDidMount(){
         this.props.load_posts() 
     }
@@ -13,7 +13,6 @@ class Post extends Component {
     componentWillUnmount(){
         this.props.clear_posts()
     }
-    
 
     list_posts = () => {
         const list = this.props.posts.map((post, value) => {
@@ -28,7 +27,8 @@ class Post extends Component {
             )
         }).reverse()
         return list
-    }
+    }        
+
 
     render(){
         return(
@@ -47,12 +47,12 @@ const mapStateToProps = (state) => {
     }
   }
   
-  const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
+
     return {
         load_posts: () => {
             var ref = firebase.database().ref('posts/').limitToLast(7)
             ref.on('child_added', function(snapshot, prevChildKey) {
-                var post = snapshot.val()
                 dispatch({type: 'POST_LIST', data: snapshot})
             })
         },
