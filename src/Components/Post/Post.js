@@ -10,13 +10,19 @@ class Post extends Component {
         this.props.load_posts() 
     }
 
+    componentWillUnmount(){
+        this.props.clear_posts()
+    }
+    
+
     list_posts = () => {
         const list = this.props.posts.map((post, value) => {
+            var p = post.val()
             return(
                 <div>
-                    <h1 key={value} className="title"><Link to='/'>{post.title}</Link></h1>
-                    <p>{post.body}</p>
-                    <strong className="column is-offset-9">{post.day} / {post.month} / {post.year}</strong>
+                    <h1 key={post.key} className="title"><Link to={`/${post.key}`}>{p.title}</Link></h1>
+                    <p>{p.body}</p>
+                    <strong className="column is-offset-9">{p.day} / {p.month} / {p.year}</strong>
                     <br/>
                 </div>
             )
@@ -44,15 +50,15 @@ const mapStateToProps = (state) => {
   const mapDispatchToProps = (dispatch) => {
     return {
         load_posts: () => {
-            console.log("post")
             var ref = firebase.database().ref('posts/').limitToLast(7)
             ref.on('child_added', function(snapshot, prevChildKey) {
-                console.log('child_added')
                 var post = snapshot.val()
-                dispatch({type: 'POST_LIST', data: post})
+                dispatch({type: 'POST_LIST', data: snapshot})
             })
         },
-        
+        clear_posts: () => {
+            dispatch({type: 'POST_CLEAR'})
+        }
       }
   }
   
