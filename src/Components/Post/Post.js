@@ -58,6 +58,8 @@ const mapDispatchToProps = (dispatch) => {
         },
         clear_posts: () => {
             dispatch({type: 'POST_CLEAR'})
+            var ref = firebase.database().ref('posts/').limitToLast(7)
+            ref.off('child_added')
         }
       }
   }

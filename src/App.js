@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // redux 
 import { connect } from 'react-redux'
 // Firebase
-import { DB_CONFIG } from './firebase'
+import { DB_CONFIG } from './firebase-dev'
 import firebase from 'firebase'
 // Componets
 import Navbar from './Components/Navbar'

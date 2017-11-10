@@ -24,7 +24,7 @@ const CreatePost = (props) => {
         })
         .catch(error => console.log(error))
     }
-    
+
     return(
         <div className="section">
             <div className="column is-half is-offset-one-quarter">
@@ -44,7 +44,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         clear: () => {
             dispatch(reset('PostForm'))
-            dispatch({type: 'POST_CLEAR'})
             ownProps.history.push('/')
         }
     }
