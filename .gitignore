@@ -2,6 +2,7 @@
 
 # firebase
 /src/firebase.js
+/src/firebase-dev.js
 
 # dependencies
 /node_modules
