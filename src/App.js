@@ -6,7 +6,7 @@ import { DB_CONFIG } from './firebase-dev'
 import firebase from 'firebase'
 // Componets
 import Navbar from './Components/Navbar'
-import Footer from './Components/Footer'
+import Footer from './Components/UI/Footer'
 
 // Firebase config
 firebase.initializeApp(DB_CONFIG);

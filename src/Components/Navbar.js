@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 // redux 
 import { connect } from 'react-redux'
 // Components
-import Post from './Post/Post'
+import PostContainer from './Post/PostContainer'
 import PostId from './Post/PostId'
 import CreatePost from './Post/CreatePost'
 import EditPost from './Post/EditPost'
 import Header from './Header'
-import NotFound from './NotFound'
+import NotFound from './UI/NotFound'
 // Firebase
 import firebase from 'firebase'
   
@@ -48,7 +48,7 @@ class Navbar extends Component {
                     onLogout={this.handleLogout.bind(this)}
                     user={this.props.user}
                     />
-                <Route exact path='/' component={Post} />
+                <Route exact path='/' component={PostContainer} />
                 <Route exact path='/:id' component={PostId} />
                 <Route path='/post/create' component={CreatePost} />
                 <Route exact path='/:id/edit' component={EditPost} />
