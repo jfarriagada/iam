@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #e8f8f5;
 }
 
 .loader {
@@ -28,3 +29,29 @@ body {
 #file-banner {
   background-color: lightblue;
 }
+
+figure {
+  margin: 0;
+  display: inline-block;
+  border: 2px solid black;
+  border-style: dotted;
+  position: relative;
+}
+
+figcaption {
+  background-color:black;
+  position: absolute;
+  left: 0px;
+  bottom: 5%;
+  width: 100%;
+  opacity: 0.7;
+  text-align: center;
+  padding: 2%;
+}
+
+figcaption > p > a {
+  text-transform: uppercase;
+  color: white;
+  font-size: 20px;
+}
+
