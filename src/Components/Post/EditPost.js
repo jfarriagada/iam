@@ -6,11 +6,15 @@ import { reset } from 'redux-form'
 import css from './Post.css'
 // Forms
 import EditPostForm from './EditPostForm'
+import EditFileUpload from './EditFileUpload'
 
 const EditPost = (props) => {
     
 
     const form = (data) => {
+        data.banner_url = props.banner
+        console.log(props.banner)
+        console.log(data)
         props.edit(data)
     }
     
@@ -18,6 +22,7 @@ const EditPost = (props) => {
         <div className="section">
             <div className="column is-half is-offset-one-quarter">
                 editar
+            <EditFileUpload />
             <EditPostForm onSubmit={form}/>
             </div>
         </div>
@@ -27,7 +32,7 @@ const EditPost = (props) => {
 const mapStateToProps = (state) => {
     return {
         user : state.session,
-        edit_post : state.edit_post
+        banner: state.banner
     }
 }
 

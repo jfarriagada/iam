@@ -6,6 +6,7 @@ import { reset } from 'redux-form'
 import css from './Post.css'
 // Forms
 import PostForm from './PostForm'
+import FileUpload from './FileUpload'
 
 const CreatePost = (props) => {
 
@@ -16,10 +17,10 @@ const CreatePost = (props) => {
             body: data.body,
             day: new Date().getDate(),
             month: new Date().getMonth(),
-            year: new Date().getFullYear()
+            year: new Date().getFullYear(),
+            banner_url: props.banner
         })
         .then(function(response){
-            console.log(response)
             props.clear()
         })
         .catch(error => console.log(error))
@@ -28,7 +29,8 @@ const CreatePost = (props) => {
     return(
         <div className="section">
             <div className="column is-half is-offset-one-quarter">
-            <PostForm onSubmit={form}/>
+                <FileUpload />
+                <PostForm onSubmit={form}/>
             </div>
         </div>
     )
@@ -36,7 +38,8 @@ const CreatePost = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        user : state.session
+        user : state.session,
+        banner: state.banner
     }
 }
 

@@ -3,6 +3,10 @@ import { connect } from 'react-redux'
 import firebase from 'firebase'
 import { reset } from 'redux-form'
 import { Link } from 'react-router-dom'
+// UI
+import Spinner from '../UI/Spinner'
+import Post from '../UI/Post'
+
 
 class PostId extends Component {
     
@@ -14,17 +18,34 @@ class PostId extends Component {
         this.props.clear_post_id()
     }
 
+    show_post = () => {
+        if(this.props.post_id_key.length !== 0) {
+            return(
+                <div>  
+                    <Post
+                        id={this.props.post_id_key}
+                        banner_url={this.props.post_id.banner_url}
+                        title={this.props.post_id.title}
+                        body={this.props.post_id.body}
+                        day={this.props.post_id.day}
+                        month={this.props.post_id.month}
+                        year={this.props.post_id.year} />
+
+                        <Link to={`/${this.props.post_id_key}/edit`}>Edit</Link>
+                        <button onClick={() => this.props.delete_post()}>Delete</button>
+                </div>
+            )
+        } else {
+            return <Spinner />
+        }
+    }
+
 
     render(){
         return(
             <div className="section">
                 <div className="column is-half is-offset-one-quarter">
-                    <h1 className="title">{this.props.post_id.title}</h1>
-                    <p>{this.props.post_id.body}</p>
-                    <Link to={`/${this.props.post_id_key}/edit`}>Edit</Link>
-                    <button onClick={() => this.props.delete_post()}>Delete</button>
-                    <strong className="column is-offset-9">{this.props.post_id.day} / {this.props.post_id.month} / {this.props.post_id.year}</strong>
-                    <br/>
+                    {this.show_post()}
                 </div>
             </div>
         )
@@ -36,9 +57,9 @@ const mapStateToProps = (state) => {
         post_id: state.post_id,
         post_id_key: state.post_id_key
     }
-  }
-  
-  const mapDispatchToProps = (dispatch, ownProps) => {
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         load_post: () => {
             var ref = firebase.database().ref('posts/' + ownProps.match.params.id)
@@ -55,8 +76,7 @@ const mapStateToProps = (state) => {
             // redirect
             ownProps.history.push('/')
         }
-      }
-  }
+    }
+}
   
-  export default connect(mapStateToProps, mapDispatchToProps)(PostId)
-  
+export default connect(mapStateToProps, mapDispatchToProps)(PostId)
