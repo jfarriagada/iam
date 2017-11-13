@@ -50,10 +50,16 @@ class Navbar extends Component {
                     />
                 <Switch>
                     <Route exact path='/' component={PostContainer} />
-                    <Route exact path='/post/create' component={CreatePost} />
-                    <Route exact path='/post/:id/edit' component={EditPost} />
-                    <Route path='/post/:id' component={PostId} />
-                    <Route component={NotFound} />
+                    { this.props.user ? 
+                        <Route exact path='/post/create' component={CreatePost} /> : 
+                        <Route exact path='/' component={PostContainer} /> }
+                    { this.props.user ? 
+                        <Route exact path='/post/:id/edit' component={EditPost} /> : 
+                        <Route exact path='/' component={PostContainer} /> }
+                    <Route path='/post/:id' component={PostId} />      
+                    { this.props.user ? 
+                        <Route component={NotFound} /> : 
+                        <Route component={NotFound} /> }  
                 </Switch>
             </div>
           </Router>

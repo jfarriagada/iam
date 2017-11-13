@@ -31,8 +31,10 @@ class PostId extends Component {
                         month={this.props.post_id.month}
                         year={this.props.post_id.year} />
 
-                        <Link to={`/post/${this.props.post_id_key}/edit`}>Edit</Link>
-                        <button onClick={() => this.props.delete_post()}>Delete</button>
+                        { this.props.user ? 
+                            <Link to={`/post/${this.props.post_id_key}/edit`}>Edit</Link> : "" }
+                        { this.props.user ? 
+                            <button onClick={() => this.props.delete_post()}>Delete</button> : "" }
                 </div>
             )
         } else {
@@ -55,7 +57,8 @@ class PostId extends Component {
 const mapStateToProps = (state) => {
     return {
         post_id: state.post_id,
-        post_id_key: state.post_id_key
+        post_id_key: state.post_id_key,
+        user : state.session
     }
 }
 
