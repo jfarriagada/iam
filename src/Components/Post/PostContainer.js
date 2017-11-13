@@ -12,6 +12,11 @@ class PostContainer extends Component {
         this.setState({ post_loading : "data"})
     }
 
+    componentWillUnmount = () => {
+        this.props.clear_posts()
+    }
+    
+
     list_posts = () => {
         if(this.props.post.length > 0) {
             const list = this.props.post.map((post_key, value) => {
@@ -20,6 +25,7 @@ class PostContainer extends Component {
                     <div key={value} className="column is-half is-offset-one-quarter">  
                         <Post
                             id={post_key.key}
+                            banner_url={post.banner_url}
                             title={post.title}
                             body={post.body}
                             day={post.day}
@@ -48,7 +54,7 @@ const mapStateToProps = (state) => {
     return {
         post: state.posts
     }
-  }
+}
   
 const mapDispatchToProps = (dispatch) => {
     return {

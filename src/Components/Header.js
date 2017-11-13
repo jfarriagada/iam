@@ -25,7 +25,7 @@ const Header = ({onAuth, onLogout, user}) => {
     return (
         <div className="navbar is-info" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
-                <a className="navbar-item"> I'am </a>
+                <a href="/" className="navbar-item">I'am</a>
                 <div className="navbar-burger" data-target="navMenu">
                         <span></span>
                         <span></span>

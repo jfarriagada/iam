@@ -9,8 +9,12 @@ class FileUpload extends Component {
             uploadValue: 0,
             banner: null
         }
-
         this.handleUpload = this.handleUpload.bind(this)
+    }
+    
+    componentDidMount = () => {
+      const url = this.props.edit_post.banner_url
+      this.setState({banner: url})
     }
 
     handleUpload(event) {
@@ -49,6 +53,7 @@ class FileUpload extends Component {
   
 const mapStateToProps = (state) => {
     return {
+        edit_post: state.edit_post
     }
 }
   

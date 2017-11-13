@@ -66,7 +66,19 @@ const edit_post = (state = {}, action) => {
             return new_state
         default:
             return state
-        }
+    }
+}
+
+const banner = (state = {}, action) => {
+    var new_state = Object.assign({}, state)
+
+    switch (action.type) {
+        case 'BANNER_URL':
+            new_state = action.data
+            return new_state
+        default:
+            return state
+    }
 }
 
 const reducer = combineReducers({
@@ -75,7 +87,8 @@ const reducer = combineReducers({
     posts,
     post_id,
     post_id_key,
-    edit_post
+    edit_post,
+    banner
 })
 
 const store = createStore(reducer)

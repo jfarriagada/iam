@@ -2,18 +2,18 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
 const validate = values => {
-  const errors = {}
-  if (!values.title) {
-    errors.title = 'Required'
-  } else if (values.title.length > 150) {
-    errors.title = 'Maximo 150 caracteres'
-  }
-  if (!values.body) {
-    errors.body = 'Required'
-  } else if (values.body.length > 7500) {
-    errors.body = 'Maximo 7500 caracteres'
-  }
-  return errors
+    const errors = {}
+    if (!values.title) {
+        errors.title = 'Required'
+    } else if (values.title.length > 150) {
+        errors.title = 'Maximo 150 caracteres'
+    }
+    if (!values.body) {
+        errors.body = 'Required'
+    } else if (values.body.length > 7500) {
+        errors.body = 'Maximo 7500 caracteres'
+    }
+    return errors
 }
 
 // El renderField itera sobre cada elemento del form
