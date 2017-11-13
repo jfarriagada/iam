@@ -7,7 +7,7 @@ const Post = (props) => {
             <figure>
                 <img src={props.banner_url} />
                 <figcaption>
-                    <p className="titles"><Link to={`/${props.id}`}>{props.title}</Link></p>
+                    <p className="titles"><Link to={`/post/${props.id}`}>{props.title}</Link></p>
                 </figcaption>
             </figure>
             <hr />

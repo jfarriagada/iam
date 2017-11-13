@@ -31,7 +31,7 @@ class PostId extends Component {
                         month={this.props.post_id.month}
                         year={this.props.post_id.year} />
 
-                        <Link to={`/${this.props.post_id_key}/edit`}>Edit</Link>
+                        <Link to={`/post/${this.props.post_id_key}/edit`}>Edit</Link>
                         <button onClick={() => this.props.delete_post()}>Delete</button>
                 </div>
             )
