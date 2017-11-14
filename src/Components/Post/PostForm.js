@@ -34,7 +34,7 @@ const renderField = ({ input, label, type, meta: { touched, error, warning }}) =
 const renderText = ({ input, label, type, meta: { touched, error, warning }}) =>
 <div>
   <div>
-    <textarea id="post-body" className="textarea" {...input} placeholder={label} type={type} > </textarea>
+    <p contenteditable="true" id="post-body" className="" > </p>
     {touched &&
       ((error &&
         <span>

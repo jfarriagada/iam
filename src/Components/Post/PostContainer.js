@@ -22,12 +22,12 @@ class PostContainer extends Component {
             const list = this.props.post.map((post_key, value) => {
                 var post = post_key.val()
                 return(
-                    <div key={value} className="column is-half is-offset-one-quarter">  
+                    <div key={value} className="column is-7 is-center">  
                         <Post
                             id={post_key.key}
                             banner_url={post.banner_url}
                             title={post.title}
-                            body={post.body}
+                            body_html={post.body_html}
                             day={post.day}
                             month={post.month}
                             year={post.year}
