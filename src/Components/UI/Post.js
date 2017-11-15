@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 const Post = (props) => {
-    var html = props.body_html
+    var html = props.body_html   
     function createMarkup() { return {__html: html}; }
     
     var banner_url = null

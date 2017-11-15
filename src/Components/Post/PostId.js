@@ -21,20 +21,19 @@ class PostId extends Component {
     show_post = () => {
         if(this.props.post_id_key.length !== 0) {
             return(
-                <div>  
+                <div>
+                    { this.props.user ? 
+                        <Link className="button is-primary is-outlined" to={`/post/${this.props.post_id_key}/edit`}>Edit</Link>: "" }
+                    { this.props.user ? 
+                        <button className="button is-danger is-outlined" onClick={() => this.props.delete_post()}>Delete</button> : "" }
                     <Post
                         id={this.props.post_id_key}
                         banner_url={this.props.post_id.banner_url}
                         title={this.props.post_id.title}
-                        body={this.props.post_id.body}
+                        body_html={this.props.post_id.body_html}
                         day={this.props.post_id.day}
                         month={this.props.post_id.month}
                         year={this.props.post_id.year} />
-
-                        { this.props.user ? 
-                            <Link to={`/post/${this.props.post_id_key}/edit`}>Edit</Link> : "" }
-                        { this.props.user ? 
-                            <button onClick={() => this.props.delete_post()}>Delete</button> : "" }
                 </div>
             )
         } else {
@@ -46,7 +45,7 @@ class PostId extends Component {
     render(){
         return(
             <div className="section">
-                <div className="column is-half is-offset-one-quarter">
+                <div className="column column is-7 is-center">
                     {this.show_post()}
                 </div>
             </div>

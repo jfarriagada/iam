@@ -2,22 +2,39 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import firebase from 'firebase'
 
+const Progress = (props) => {
+    return (
+        <div>
+            <progress value={props.uploadValue} max="100"></progress><b> {Math.round(props.uploadValue)} %</b>
+        </div>
+    )
+}
+
+
 class FileUpload extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             uploadValue: 0,
-            banner: null
+            upload: false
         }
+        
         this.handleUpload = this.handleUpload.bind(this)
     }
     
     componentDidMount = () => {
-      const url = this.props.edit_post.banner_url
-      this.setState({banner: url})
+        if(this.props.banner_url !== null){
+            const url = "https://firebasestorage.googleapis.com/v0/b/iam-copy.appspot.com/o/banners%2Fgiphy.gif?alt=media&token=8731ddfb-6e8c-42e1-8d02-2769c120e2ed"
+            this.setState({banner_url: url})
+        } else {
+            this.setState({banner_url: this.props.banner_url})
+        }
+
     }
 
     handleUpload(event) {
+        this.setState({ upload: true }) // hidden progress
+
         const file = event.target.files[0]
         const storageRef = firebase.storage().ref(`/banners/${file.name}`)
         const task = storageRef.put(file)
@@ -32,7 +49,8 @@ class FileUpload extends Component {
         }, () => {
             this.setState({
                 uploadValue : 100,
-                banner: task.snapshot.downloadURL
+                banner: task.snapshot.downloadURL,
+                upload: false
             })
             this.props.banner(task.snapshot.downloadURL)
         })
@@ -42,10 +60,10 @@ class FileUpload extends Component {
     render() {
         return (
             <div>
-                <progress value={this.state.uploadValue} max="100"></progress>
-                <input type="file" id="file-banner" onChange={this.handleUpload}/>
+                <input  type="file" id="file-banner" onChange={this.handleUpload}/>
+                    { this.state.upload ? <Progress uploadValue={this.state.uploadValue} /> : ""}
                 <br/>
-                <img src={this.state.banner} />
+                <img className="image-post" src={this.state.banner_url} />
             </div>
         )
     }
@@ -53,7 +71,6 @@ class FileUpload extends Component {
   
 const mapStateToProps = (state) => {
     return {
-        edit_post: state.edit_post
     }
 }
   

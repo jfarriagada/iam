@@ -5,6 +5,8 @@ import { reset } from 'redux-form'
 // Css
 import css from './Post.css'
 import FileUpload from './FileUpload'
+// UI
+import Toolbar from '../UI/Toolbar'
 
 
 const CreatePost = (props) => {
@@ -32,45 +34,18 @@ const CreatePost = (props) => {
         .catch(error => console.log(error))
     }
 
-    function formatoFuente(sCmd, sValue) {
-        
-        document.execCommand(sCmd, false, sValue);
-        
-    }
-
-
     return(
         <div className="section">
-            <div className="column is-7 has-text-centered is-center">
+            <div className="column is-7 is-center">
                 <FileUpload />
-                
-                <div className="post-toolbar">
-                    <a className="button is-primary" 
-                        onClick={() => saveData(document.getElementById("post-title").innerHTML, document.getElementById("post-body").innerHTML)}>Guardar
-                    </a>
-                    <button className="icon-button" title="Bold" onClick={() => document.execCommand('bold',false,'')}>
-                        <span className="icon-bold icon-font"></span>
-                    </button>
-                    <button className="icon-button" title="Italic" onClick={() => document.execCommand('italic',false,'')}>
-                        <span className="icon-italic icon-font"></span>
-                    </button>
-                    <button className="icon-button" title="Strikethrough" onClick={() => document.execCommand('strikethrough',false,'')}>
-                        <span className="icon-strikethrough icon-font"></span>
-                    </button>
-                    <button className="icon-button" title="Underline" onClick={() => document.execCommand('underline',false,'')}>
-                        <span className="icon-underline icon-font"></span>
-                    </button>
-                    <button className="icon-button" title="Undo" onClick={() => document.execCommand('undo',false,'')}>
-                        <span className="icon-undo icon-font"></span>
-                    </button>
-                    <button className="icon-button" title="Redo" onClick={() => document.execCommand('redo',false,'')}>
-                        <span className="icon-redo icon-font"></span>
-                    </button>
-                </div>
+                <Toolbar />
                 <div contentEditable="true">
                     <p id="post-title" className="title">Título</p>
-                    <p id="post-body">Ingrese texto . . .</p>
+                    <p id="post-body">Texto. . .</p>
                 </div>
+                <a className="button is-primary" 
+                    onClick={() => saveData(document.getElementById("post-title").innerHTML, document.getElementById("post-body").innerHTML)}>Guardar
+                </a>
             </div>
         </div>
     )
