@@ -15,6 +15,10 @@ const Post = (props) => {
 
     return (
         <div>
+            <div className="columns">
+                <img className="circular-image image is-64x64" src={ props.user_image } />
+                <i className="avatar-email">{ props.user_email }</i>
+            </div>
             <figure>
                 <img className="image-post" src={banner_url} />
                 <figcaption>

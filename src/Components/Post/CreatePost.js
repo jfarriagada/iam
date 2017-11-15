@@ -26,7 +26,9 @@ const CreatePost = (props) => {
             day: new Date().getDate(),
             month: new Date().getMonth(),
             year: new Date().getFullYear(),
-            banner_url: props.banner 
+            banner_url: props.banner,
+            user_image: props.user.photoURL,
+            user_email: props.user.email
         })
         .then(function(response){
             props.clear()
