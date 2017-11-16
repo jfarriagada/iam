@@ -56,7 +56,7 @@ class FileUpload extends Component {
                     { this.state.upload ? <Posgress uploadValue={this.state.uploadValue} /> : ""}
                 </div>
                 <br/>
-                <img className="image-post" src={this.state.banner} />
+                <img className="image-post" src={this.state.banner} alt="banner"/>
             </div>
         )
     }

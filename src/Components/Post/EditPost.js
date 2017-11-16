@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import firebase from 'firebase'
-import { reset } from 'redux-form'
 // Css
 import css from './Post.css'
 import EditFileUpload from './EditFileUpload'

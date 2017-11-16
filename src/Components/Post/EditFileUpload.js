@@ -63,7 +63,7 @@ class FileUpload extends Component {
                 <input  type="file" id="file-banner" onChange={this.handleUpload}/>
                     { this.state.upload ? <Progress uploadValue={this.state.uploadValue} /> : ""}
                 <br/>
-                <img className="image-post" src={this.state.banner_url} />
+                <img className="image-post" src={this.state.banner_url} alt="banner" />
             </div>
         )
     }

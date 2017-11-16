@@ -1,7 +1,6 @@
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
 import firebase from 'firebase'
-import { reset } from 'redux-form'
 import { Link } from 'react-router-dom'
 // UI
 import Spinner from '../UI/Spinner'
@@ -74,7 +73,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch({type: 'POST_ID_CLEAR'})
         },
         delete_post: () => {
-            var ref = firebase.database().ref('posts/' + ownProps.match.params.id).remove()
+            firebase.database().ref('posts/' + ownProps.match.params.id).remove()
             // redirect
             ownProps.history.push('/')
         }

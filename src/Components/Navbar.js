@@ -7,7 +7,7 @@ import PostContainer from './Post/PostContainer'
 import PostId from './Post/PostId'
 import CreatePost from './Post/CreatePost'
 import EditPost from './Post/EditPost'
-import Header from './Header'
+import Header from './UI/Header'
 import NotFound from './UI/NotFound/NotFound'
 // Firebase
 import firebase from 'firebase'
@@ -57,7 +57,7 @@ class Navbar extends Component {
                         <Route exact path='/post/:id/edit' component={EditPost} /> : 
                         <Route exact path='/' component={PostContainer} /> }
                     { this.props.user ? 
-                        <Route path='/post/:id' component={PostId} /> :
+                        <Route exact path='/post/:id' component={PostId} /> :
                         <Route exact path='/' component={PostContainer} /> }      
                     { this.props.user ? 
                         <Route component={NotFound} /> : 
