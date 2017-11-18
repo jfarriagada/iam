@@ -7,6 +7,8 @@ import Spinner from '../UI/Spinner'
 import Post from '../UI/Post'
 
 
+
+
 class PostId extends Component {
     
     componentDidMount(){
@@ -17,14 +19,23 @@ class PostId extends Component {
         this.props.clear_post_id()
     }
 
+    /* Authentication buttons, solo el usuario que creo los post los puede editar y eliminar */
+    PostIDButtons = () => {
+        if(this.props.user.uid === this.props.post_id.user_uid){
+            return(
+                <div>
+                    <Link className="button is-primary is-outlined" to={`/post/${this.props.post_id_key}/edit`}>Edit</Link>
+                    <button className="button is-danger is-outlined" onClick={() => this.props.delete_post()}>Delete</button> 
+                </div>
+            )
+        } 
+    }
+
     show_post = () => {
         if(this.props.post_id_key.length !== 0) {
             return(
                 <div>
-                    { this.props.user ? 
-                        <Link className="button is-primary is-outlined" to={`/post/${this.props.post_id_key}/edit`}>Edit</Link>: "" }
-                    { this.props.user ? 
-                        <button className="button is-danger is-outlined" onClick={() => this.props.delete_post()}>Delete</button> : "" }
+                    { this.PostIDButtons() }
                     <Post
                         id={this.props.post_id_key}
                         banner_url={this.props.post_id.banner_url}
