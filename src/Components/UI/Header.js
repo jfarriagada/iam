@@ -16,7 +16,7 @@ const Header = ({onAuth, onLogout, user}) => {
     function renderLogoutButton(){
         return (
             <div className="navbar-start">
-                <div className="navbar-item">{user.displayName}</div>
+                <div className="navbar-item"><Link to={`/${user.email}`}>{user.displayName}</Link></div>
                 <div className="navbar-item"><Link to='/'>Home</Link></div>
                 <div className="navbar-item"><Link to='/post/create'>Create Post</Link></div>
                 <div className="navbar-item" onClick={onLogout}><Link to='/'> Logout </Link></div>

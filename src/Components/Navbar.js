@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 // Components
 import PostContainer from './Post/PostContainer'
+import UserPost from './Post/UserPost'
 import PostId from './Post/PostId'
 import CreatePost from './Post/CreatePost'
 import EditPost from './Post/EditPost'
@@ -50,6 +51,7 @@ class Navbar extends Component {
                     />
                 <Switch>
                     <Route exact path='/' component={PostContainer} />
+                    <Route exact path='/:email' component={UserPost} />
                     { this.props.user ? 
                         <Route exact path='/post/create' component={CreatePost} /> : 
                         <Route exact path='/' component={PostContainer} /> }
