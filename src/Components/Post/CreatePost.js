@@ -39,9 +39,11 @@ const CreatePost = (props) => {
             <div className="column is-7 is-center">
                 <FileUpload />
                 <Toolbar />
-                <div contentEditable="true">
-                    <p id="post-title" className="title">Título</p>
-                    <p id="post-body">Texto. . .</p>
+                <div>
+                    <h1 contentEditable="true" id="post-title" className="title">Título</h1>
+                </div>
+                <div>
+                    <p contentEditable="true" id="post-body">Texto. . .</p>
                 </div>
                 <a className="button is-primary" 
                     onClick={() => saveData(document.getElementById("post-title").innerHTML, document.getElementById("post-body").innerHTML)}>Guardar

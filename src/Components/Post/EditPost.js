@@ -42,11 +42,11 @@ class EditPost extends Component {
                 <div className="column is-7 is-center">
                     <EditFileUpload banner_url={this.state.banner_url}/>
                     <Toolbar />
-                    <div contentEditable="true">
-                        <p dangerouslySetInnerHTML={createMarkupTitle(this.state.title)} id="post-title" className="title"></p>
-                        <div>
-                        <p dangerouslySetInnerHTML={createMarkupBody(this.state.body_html)} id="post-body"></p>
-                        </div>
+                    <div>
+                        <h1 contentEditable="true" dangerouslySetInnerHTML={createMarkupTitle(this.state.title)} id="post-title" className="title"></h1>
+                    </div>
+                    <div>
+                        <p contentEditable="true" dangerouslySetInnerHTML={createMarkupBody(this.state.body_html)} id="post-body"></p>
                     </div>
                     <a className="button is-primary" 
                         onClick={() => this.saveData(document.getElementById("post-title").innerHTML, document.getElementById("post-body").innerHTML)}>Guardar
