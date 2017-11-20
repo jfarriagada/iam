@@ -24,7 +24,7 @@ class FileUpload extends Component {
     
     componentDidMount = () => {
         if(this.props.banner_url !== null){
-            const url = "https://firebasestorage.googleapis.com/v0/b/iam-copy.appspot.com/o/banners%2Fgiphy.gif?alt=media&token=8731ddfb-6e8c-42e1-8d02-2769c120e2ed"
+            const url = "https://firebasestorage.googleapis.com/v0/b/iamfarriagada.appspot.com/o/banners%2Fgiphy.gif?alt=media&token=2f67b1ba-e033-4862-a9b8-9336dc49c6a7"
             this.setState({banner_url: url})
         } else {
             this.setState({banner_url: this.props.banner_url})
