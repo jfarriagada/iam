@@ -6,14 +6,17 @@ const Header = ({onAuth, onLogout, user}) => {
     
     function renderAuthButton(){
         return (
-            <div className="navbar-item" onClick={onAuth}><Link to='/'> Authenticate </Link></div>
+            <div className="navbar-start">
+                <div className="navbar-item" onClick={onAuth}><Link to='/'> Login </Link></div>
+                <div className="navbar-item" onClick={onAuth}><Link to='/'> Registrarse </Link></div>
+            </div>
         )
     }
 
     function renderLogoutButton(){
         return (
             <div className="navbar-start">
-                <div className="navbar-item">{user.displayName}</div>
+                <div className="navbar-item"><Link to={`/${user.email}`}>{user.displayName}</Link></div>
                 <div className="navbar-item"><Link to='/'>Home</Link></div>
                 <div className="navbar-item"><Link to='/post/create'>Create Post</Link></div>
                 <div className="navbar-item" onClick={onLogout}><Link to='/'> Logout </Link></div>
@@ -23,7 +26,7 @@ const Header = ({onAuth, onLogout, user}) => {
 
 
     return (
-        <div className="navbar is-info" role="navigation" aria-label="main navigation">
+        <div className="navbar" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
                 <a href="/" className="navbar-item">I'am</a>
                 <div className="navbar-burger" data-target="navMenu">

@@ -4,10 +4,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 // Components
 import PostContainer from './Post/PostContainer'
+import UserPost from './Post/UserPost'
 import PostId from './Post/PostId'
 import CreatePost from './Post/CreatePost'
 import EditPost from './Post/EditPost'
-import Header from './Header'
+import Header from './UI/Header'
 import NotFound from './UI/NotFound/NotFound'
 // Firebase
 import firebase from 'firebase'
@@ -50,13 +51,16 @@ class Navbar extends Component {
                     />
                 <Switch>
                     <Route exact path='/' component={PostContainer} />
+                    <Route exact path='/:email' component={UserPost} />
                     { this.props.user ? 
                         <Route exact path='/post/create' component={CreatePost} /> : 
                         <Route exact path='/' component={PostContainer} /> }
                     { this.props.user ? 
                         <Route exact path='/post/:id/edit' component={EditPost} /> : 
                         <Route exact path='/' component={PostContainer} /> }
-                    <Route path='/post/:id' component={PostId} />      
+                    { this.props.user ? 
+                        <Route exact path='/post/:id' component={PostId} /> :
+                        <Route exact path='/' component={PostContainer} /> }      
                     { this.props.user ? 
                         <Route component={NotFound} /> : 
                         <Route component={NotFound} /> }  

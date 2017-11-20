@@ -5,7 +5,7 @@ import firebase from 'firebase'
 import Spinner from '../UI/Spinner'
 import Post from '../UI/Post'
 
-class PostContainer extends Component {
+class UserPost extends Component {
 
     componentDidMount(){
         this.props.load_posts()
@@ -66,17 +66,18 @@ const mapStateToProps = (state) => {
   
 const mapDispatchToProps = (dispatch, ownProps) => {
     var url_path = ownProps.match.url
-    if(url_path.length > 1){ url_path = url_path.replace("/","") }
+    url_path = url_path.replace("/","")
 
     return {
         load_posts: () => {
             var ref = firebase.database().ref('posts/')
 
-            if(url_path === '/'){
-                ref.limitToLast(7).on('child_added', function(snapshot, prevChildKey) {
+            if(url_path !== "/" && url_path !== ""){
+                //TODO: check email
+                ref.orderByChild("user_email").equalTo(url_path).on('child_added', function(snapshot, prevChildKey) {
                     dispatch({type: 'POST_LIST', data: snapshot })
                 })
-            }
+            } 
         },
         clear_posts: () => {
             dispatch({type: 'POST_CLEAR'})
@@ -86,4 +87,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
   
-export default connect(mapStateToProps, mapDispatchToProps)(PostContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(UserPost)
