@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import firebase from 'firebase'
 
+var gif = "https://firebasestorage.googleapis.com/v0/b/iamfarriagada.appspot.com/o/banners%2Fgiphy.gif?alt=media&token=b3ef320d-4fc5-46b6-bee3-f6fdffd62200"
 
 const Posgress = (props) => {
     return (
@@ -16,7 +17,7 @@ class FileUpload extends Component {
         super()
         this.state = {
             uploadValue: 0,
-            banner: "https://firebasestorage.googleapis.com/v0/b/iamfarriagada.appspot.com/o/banners%2Fgiphy.gif?alt=media&token=2f67b1ba-e033-4862-a9b8-9336dc49c6a7",
+            banner: gif,
             upload: false
         }
 
