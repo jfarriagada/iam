@@ -5,6 +5,8 @@ import firebase from 'firebase'
 import Spinner from '../UI/Spinner'
 import Post from '../UI/Post'
 
+var gif = "https://firebasestorage.googleapis.com/v0/b/iamfarriagada.appspot.com/o/banners%2Fgiphy.gif?alt=media&token=b3ef320d-4fc5-46b6-bee3-f6fdffd62200"
+
 class UserPost extends Component {
 
     componentDidMount(){
@@ -41,7 +43,7 @@ class UserPost extends Component {
             return(
                 <div className="column is-7 is-center">
                     <p className="title">¡ Bienvenido !</p>
-                    <img className="image-post" src="https://firebasestorage.googleapis.com/v0/b/iam-copy.appspot.com/o/banners%2Fgiphy.gif?alt=media&token=8731ddfb-6e8c-42e1-8d02-2769c120e2ed" />
+                    <img className="image-post" src={ gif } />
                 </div>
             )
         }else {

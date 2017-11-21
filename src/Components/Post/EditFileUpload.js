@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import firebase from 'firebase'
 
+var gif = "https://firebasestorage.googleapis.com/v0/b/iamfarriagada.appspot.com/o/banners%2Fgiphy.gif?alt=media&token=b3ef320d-4fc5-46b6-bee3-f6fdffd62200"
+
 const Progress = (props) => {
     return (
         <div>
@@ -24,7 +26,7 @@ class FileUpload extends Component {
     
     componentDidMount = () => {
         if(this.props.banner_url !== null){
-            const url = "https://firebasestorage.googleapis.com/v0/b/iam-copy.appspot.com/o/banners%2Fgiphy.gif?alt=media&token=8731ddfb-6e8c-42e1-8d02-2769c120e2ed"
+            const url = gif
             this.setState({banner_url: url})
         } else {
             this.setState({banner_url: this.props.banner_url})

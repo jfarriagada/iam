@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+var gif = "https://firebasestorage.googleapis.com/v0/b/iamfarriagada.appspot.com/o/banners%2Fgiphy.gif?alt=media&token=b3ef320d-4fc5-46b6-bee3-f6fdffd62200"
 
 const Post = (props) => {
     var html = props.body_html   
@@ -8,7 +9,7 @@ const Post = (props) => {
     
     var banner_url = null
     if(props.banner_url !== null){
-        banner_url = "https://firebasestorage.googleapis.com/v0/b/iam-copy.appspot.com/o/banners%2Fgiphy.gif?alt=media&token=8731ddfb-6e8c-42e1-8d02-2769c120e2ed"
+        banner_url = gif 
     } else { 
         banner_url = props.banner_url
     }
