@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import firebase from 'firebase'
 // Css
 import css from './Post.css'
-import EditFileUpload from './EditFileUpload'
+import FileUpload from './FileUpload'
 // UI
 import Toolbar from '../UI/Toolbar'
 
@@ -22,14 +22,16 @@ class EditPost extends Component {
         var body_html = text.toString() // html text
         var title = title_html.replace(/<[^>].?>/g,"") // convert html text to plain text
         var body = body_html.replace(/<[^>].?>/g,"") // convert html text to plain text
-        var banner_url = this.props.banner
 
         var post_edited = {
             title: title,
             body: body,
-            body_html: body_html,
-            banner_url: banner_url
+            body_html: body_html
         }
+        // is activated when an image is uploaded
+        if(typeof(this.props.banner) !== "object"){
+            post_edited.banner_url = this.props.banner
+        } 
         this.props.edit(post_edited)
     }
         
@@ -40,7 +42,7 @@ class EditPost extends Component {
         return(
             <div className="section">
                 <div className="column is-7 is-center">
-                    <EditFileUpload banner_url={this.state.banner_url}/>
+                    <FileUpload banner_url={this.state.banner_url}/>
                     <Toolbar />
                     <div>
                         <h1 contentEditable="true" dangerouslySetInnerHTML={createMarkupTitle(this.state.title)} id="post-title" className="title"></h1>

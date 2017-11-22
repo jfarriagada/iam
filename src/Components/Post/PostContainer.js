@@ -5,7 +5,8 @@ import firebase from 'firebase'
 import Spinner from '../UI/Spinner'
 import Post from '../UI/Post'
 
-var gif = "https://firebasestorage.googleapis.com/v0/b/iam-copy.appspot.com/o/banners%2Fgiphy.gif?alt=media&token=8731ddfb-6e8c-42e1-8d02-2769c120e2ed"
+export var gif = "https://firebasestorage.googleapis.com/v0/b/iamfarriagada.appspot.com/o/banners%2Fgiphy.gif?alt=media&token=b3ef320d-4fc5-46b6-bee3-f6fdffd62200"
+
 
 class PostContainer extends Component {
 
@@ -39,14 +40,7 @@ class PostContainer extends Component {
                 )
             }).reverse()
             return list
-        } else if(this.props.post.length === 0){
-            return(
-                <div className="column is-7 is-center">
-                    <p className="title">¡ Bienvenido !</p>
-                    <img className="image-post" src={ gif } />
-                </div>
-            )
-        }else {
+        } else {
             return <Spinner />
         }
     }   

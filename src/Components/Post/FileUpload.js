@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import firebase from 'firebase'
+import { gif } from '../Post/PostContainer'
 
-var gif = "https://firebasestorage.googleapis.com/v0/b/iamfarriagada.appspot.com/o/banners%2Fgiphy.gif?alt=media&token=b3ef320d-4fc5-46b6-bee3-f6fdffd62200"
 
 const Posgress = (props) => {
     return (
@@ -13,16 +13,24 @@ const Posgress = (props) => {
 }
 
 class FileUpload extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             uploadValue: 0,
-            banner: gif,
             upload: false
         }
 
         this.handleUpload = this.handleUpload.bind(this)
     }
+
+    componentDidMount = () => {
+        if(this.props.banner_url === undefined){
+            this.setState({banner : gif})
+        } else {
+            this.setState({banner : this.props.banner_url})
+        }
+    }
+    
 
     handleUpload(event) {
         this.setState({ upload: true })
