@@ -29,7 +29,7 @@ class PostContainer extends Component {
                     <PostCard
                         id={ post_key.key }
                         banner_url={ post.banner_url }
-                        title={ post.title }
+                        title_html = { post.title_html }
                         user_image={ post.user_image }
                         user_email={ post.user_email }
                     />

@@ -4,7 +4,9 @@ import { gif } from '../Post/PostContainer'
 
 
 const PostCard = (props) => {
-    
+    var title = props.title_html   
+    function createMarkupTitle() { return {__html: title} }
+
     var banner_url = null
     if(props.banner_url === undefined){
         banner_url = gif 
@@ -20,8 +22,8 @@ const PostCard = (props) => {
             </div>
             <figure>
                 <img className="image-Card" src={banner_url} alt="banner"/>
-                <figcaption>
-                    <p><Link to={`/post/${props.id}`}>{props.title}</Link></p>
+                <figcaption >
+                    <p><Link dangerouslySetInnerHTML={createMarkupTitle()} to={`/post/${props.id}`}></Link></p>
                 </figcaption>
             </figure>
         </div>

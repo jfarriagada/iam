@@ -5,7 +5,9 @@ import { gif } from '../Post/PostContainer'
 
 const Post = (props) => {
     var html = props.body_html   
-    function createMarkup() { return {__html: html}; }
+    function createMarkup() { return {__html: html} }
+    var title = props.title_html   
+    function createMarkupTitle() { return {__html: title} }
     
     var banner_url = null
     if(props.banner_url === undefined){
@@ -23,7 +25,7 @@ const Post = (props) => {
             <figure>
                 <img className="image-post" src={banner_url} alt="imagen"/>
                 <figcaption>
-                    <p><Link to={`/post/${props.id}`}>{props.title}</Link></p>
+                    <p><Link dangerouslySetInnerHTML={createMarkupTitle()} to={`/post/${props.id}`}></Link></p>
                 </figcaption>
             </figure>
             <hr />

@@ -11,7 +11,7 @@ class EditPost extends Component {
         super(props)
         this.state = {
             body_html: props.post_id.body_html,
-            title: props.post_id.title,
+            title_html: props.post_id.title_html,
             banner_url: props.post_id.banner_url
         }
     }
@@ -24,6 +24,7 @@ class EditPost extends Component {
 
         var post_edited = {
             title: title,
+            title_html: title_html,
             body: body,
             body_html: body_html
         }
@@ -44,7 +45,7 @@ class EditPost extends Component {
                     <FileUpload banner_url={this.state.banner_url}/>
                     <Toolbar />
                     <div>
-                        <h1 contentEditable="true" dangerouslySetInnerHTML={createMarkupTitle(this.state.title)} id="post-title" className="title"></h1>
+                        <p contentEditable="true" dangerouslySetInnerHTML={createMarkupTitle(this.state.title_html)} id="post-title" className="title"></p>
                     </div>
                     <div>
                         <p contentEditable="true" dangerouslySetInnerHTML={createMarkupBody(this.state.body_html)} id="post-body"></p>

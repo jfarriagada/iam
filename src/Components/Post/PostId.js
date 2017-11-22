@@ -39,7 +39,7 @@ class PostId extends Component {
                     <Post
                         id={this.props.post_id_key}
                         banner_url={this.props.post_id.banner_url}
-                        title={this.props.post_id.title}
+                        title_html={this.props.post_id.title_html}
                         body_html={this.props.post_id.body_html}
                         day={this.props.post_id.day}
                         month={this.props.post_id.month}
