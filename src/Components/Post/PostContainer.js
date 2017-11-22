@@ -4,6 +4,7 @@ import firebase from 'firebase'
 // UI
 import Spinner from '../UI/Spinner'
 import Post from '../UI/Post'
+import './Post.css'
 
 export var gif = "https://firebasestorage.googleapis.com/v0/b/iamfarriagada.appspot.com/o/banners%2Fgiphy.gif?alt=media&token=b3ef320d-4fc5-46b6-bee3-f6fdffd62200"
 
