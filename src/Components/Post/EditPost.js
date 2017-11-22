@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import firebase from 'firebase'
 // Css
-import css from './Post.css'
 import FileUpload from './FileUpload'
 // UI
 import Toolbar from '../UI/Toolbar'

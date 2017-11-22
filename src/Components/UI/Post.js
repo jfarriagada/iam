@@ -21,7 +21,7 @@ const Post = (props) => {
                 <i className="avatar-email">{ props.user_email }</i>
             </div>
             <figure>
-                <img className="image-post" src={banner_url} />
+                <img className="image-post" src={banner_url} alt="banner post"/>
                 <figcaption>
                     <p><Link to={`/post/${props.id}`}>{props.title}</Link></p>
                 </figcaption>

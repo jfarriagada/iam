@@ -17,6 +17,14 @@
     margin: 20px;
 }
 
+.postid-buttons {
+    margin-bottom: 15px;
+}
+
+.postid-buttons > .button{
+    margin-left: 5%;
+}
+
 .image-post {
     width: 680px;
     height: 300px;

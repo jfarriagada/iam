@@ -43,7 +43,7 @@ class UserPost extends Component {
             return(
                 <div className="column is-7 is-center">
                     <p className="title">¡ Bienvenido !</p>
-                    <img className="image-post" src={ gif } />
+                    <img className="image-post" src={ gif } alt="banner post"/>
                 </div>
             )
         }else {

@@ -23,7 +23,7 @@ class PostId extends Component {
     PostIDButtons = () => {
         if(this.props.user.uid === this.props.post_id.user_uid){
             return(
-                <div>
+                <div class="postid-buttons column is-4 is-offset-8">
                     <Link className="button is-primary is-outlined" to={`/post/${this.props.post_id_key}/edit`}>Edit</Link>
                     <button className="button is-danger is-outlined" onClick={() => this.props.delete_post()}>Delete</button> 
                 </div>
@@ -43,7 +43,9 @@ class PostId extends Component {
                         body_html={this.props.post_id.body_html}
                         day={this.props.post_id.day}
                         month={this.props.post_id.month}
-                        year={this.props.post_id.year} />
+                        year={this.props.post_id.year}
+                        user_image={ this.props.post_id.user_image }
+                        user_email={ this.props.post_id.user_email } />
                 </div>
             )
         } else {
