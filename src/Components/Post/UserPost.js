@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import firebase from 'firebase'
 // UI
 import Spinner from '../UI/Spinner'
-import Post from '../UI/Post'
+import PostCard from '../UI/PostCard'
+import { gif } from './PostContainer'
 
-var gif = "https://firebasestorage.googleapis.com/v0/b/iamfarriagada.appspot.com/o/banners%2Fgiphy.gif?alt=media&token=b3ef320d-4fc5-46b6-bee3-f6fdffd62200"
 
 class UserPost extends Component {
 
@@ -23,15 +23,11 @@ class UserPost extends Component {
             const list = this.props.post.map((post_key, value) => {
                 var post = post_key.val()
                 return(
-                    <div key={value} className="column is-7 is-center">  
-                        <Post
+                    <div key={value} className="column is-4">  
+                        <PostCard
                             id={ post_key.key }
                             banner_url={ post.banner_url }
                             title={ post.title }
-                            body_html={ post.body_html }
-                            day={ post.day }
-                            month={ post.month }
-                            year={ post.year }
                             user_image={ post.user_image }
                             user_email={ post.user_email }
                         />
@@ -53,7 +49,7 @@ class UserPost extends Component {
 
     render(){
         return(
-            <div className="section">
+            <div className="container is-center columns is-multiline is-tablet">
                 { this.list_posts() }
             </div>
         )

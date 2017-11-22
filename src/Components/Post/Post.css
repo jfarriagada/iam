@@ -18,7 +18,7 @@
 }
 
 .postid-buttons {
-    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .postid-buttons > .button{
@@ -30,9 +30,11 @@
     height: 300px;
 }
 
+
 .circular-image {
     border-radius: 50%;
-    left: 30px
+    left: 30px;
+    top: 30px;
 }
 
 .avatar-email {

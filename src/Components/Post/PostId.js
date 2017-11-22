@@ -56,10 +56,8 @@ class PostId extends Component {
 
     render(){
         return(
-            <div className="section">
-                <div className="column column is-7 is-center">
-                    {this.show_post()}
-                </div>
+            <div className="container columns is-center">
+                { this.show_post() }
             </div>
         )
     }

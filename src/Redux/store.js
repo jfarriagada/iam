@@ -23,6 +23,8 @@ const posts = (state=[], action) => {
     switch (action.type) {
         case 'POST_LIST':
             new_state = state.concat(action.data)
+            console.log("new_state")
+            console.log(new_state)
             return new_state
         case 'POST_CLEAR':
             new_state = []

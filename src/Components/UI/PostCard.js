@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom'
 import { gif } from '../Post/PostContainer'
 
 
-const Post = (props) => {
-    var html = props.body_html   
-    function createMarkup() { return {__html: html}; }
+const PostCard = (props) => {
     
     var banner_url = null
     if(props.banner_url === undefined){
@@ -15,23 +13,19 @@ const Post = (props) => {
     }
 
     return (
-        <div className="column is-offset-3">
+        <div>
             <div className="columns is-mobile">
                 <img className="circular-image image is-64x64" src={ props.user_image } alt="avatar"/>
                 <i className="avatar-email column is-6">{ props.user_email }</i>
             </div>
             <figure>
-                <img className="image-post" src={banner_url} alt="imagen"/>
+                <img className="image-Card" src={banner_url} alt="banner"/>
                 <figcaption>
                     <p><Link to={`/post/${props.id}`}>{props.title}</Link></p>
                 </figcaption>
             </figure>
-            <hr />
-            <div dangerouslySetInnerHTML={createMarkup()}></div>
-            <strong className="column is-offset-9">{props.day} / {props.month} / {props.year}</strong>
-            <br/>
         </div>
     )
 }
 
-export default Post
+export default PostCard
