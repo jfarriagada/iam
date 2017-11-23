@@ -23,7 +23,7 @@ const PostCard = (props) => {
             <figure>
                 <img className="image-Card" src={banner_url} alt="banner"/>
                 <figcaption >
-                    <p><Link dangerouslySetInnerHTML={createMarkupTitle()} to={`/post/${props.id}`}></Link></p>
+                    <p><Link dangerouslySetInnerHTML={createMarkupTitle()} to={`/article/${props.id}`}></Link></p>
                 </figcaption>
             </figure>
         </div>

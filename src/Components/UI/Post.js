@@ -25,7 +25,7 @@ const Post = (props) => {
             <figure>
                 <img className="image-post" src={banner_url} alt="imagen"/>
                 <figcaption>
-                    <p><Link dangerouslySetInnerHTML={createMarkupTitle()} to={`/post/${props.id}`}></Link></p>
+                    <p><Link dangerouslySetInnerHTML={createMarkupTitle()} to={`/article/${props.id}`}></Link></p>
                 </figcaption>
             </figure>
             <hr />

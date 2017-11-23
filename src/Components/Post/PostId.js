@@ -21,7 +21,7 @@ class PostId extends Component {
 
     /* Authentication buttons, solo el usuario que creo los post los puede editar y eliminar */
     PostIDButtons = () => {
-        if(this.props.user.uid === this.props.post_id.user_uid){
+        if(this.props.user !== null && this.props.user.uid === this.props.post_id.user_uid){
             return(
                 <div class="postid-buttons column is-4 is-offset-8">
                     <Link className="button is-primary is-outlined" to={`/post/${this.props.post_id_key}/edit`}>Edit</Link>
